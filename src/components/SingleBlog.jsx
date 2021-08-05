@@ -12,8 +12,6 @@ const SingleBlog = () => {
   const { currentPost } = globalState;
   const [comments, setComments] = useState(null);
   const history = useHistory();
-  const wait = (amount = 0) =>
-    new Promise((resolve) => setTimeout(resolve, amount));
 
   useEffect(() => {
     (async () => {
