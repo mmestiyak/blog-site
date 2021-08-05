@@ -1,0 +1,145 @@
+a {
+  color: #007acc;
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+}
+.container {
+  width: 55%;
+  margin: 0 auto;
+}
+
+.h-1 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+}
+.navbar button {
+  background: none;
+  border: 0.5px solid #000000e6;
+  border-radius: 0.2em;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.navbar .h-1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+.navbar a {
+  color: #000000e6;
+}
+/* blogs item */
+.blogs__item {
+  padding: 0.4em;
+}
+.blogs__item h2 {
+  font-size: 2rem;
+}
+.blogs__item p {
+  font-size: 1.6rem;
+}
+.blogs__item p a {
+  font-size: 1rem;
+}
+.blogs__item > a {
+  font-weight: 900;
+  text-transform: capitalize;
+}
+.blogs__item .author {
+  text-transform: lowercase;
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: rgb(174, 42, 250);
+}
+/* Single Blog */
+.single-blog {
+  padding: 4em 0.4em;
+  color: #000000e6;
+}
+
+.single-blog p {
+  font-size: 1.6rem;
+}
+.single-blog h3 {
+  font-weight: 300;
+  font-family: monospace;
+}
+
+/* Comment Box */
+.comment-box {
+  background: rgba(77, 255, 187, 0.61);
+  border-radius: 0.3em;
+  padding: 0.5em 1em;
+  margin: 2rem 0;
+}
+
+.comment-box h3 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-family: sans-serif;
+}
+.comment-box h3 span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+.comment-box p {
+  background: rgba(94, 241, 185, 0.61);
+  opacity: 90%;
+  padding: 0.5em;
+  border-radius: inherit;
+  font-size: 1.4rem;
+}
+.comment-box__header {
+  display: flex;
+}
+
+.comment-box__avatar {
+  margin-right: 1rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background: tomato;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  html {
+    font-size: 10px;
+  }
+}
+
+.post-form {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+.post-form input {
+  padding: 0.4em;
+}
+.post-form textarea {
+  resize: none;
+}
+.post-form input,
+textarea {
+  font-size: inherit;
+  font-family: inherit;
+}
