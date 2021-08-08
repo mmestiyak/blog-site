@@ -15,6 +15,10 @@ const SingleBlog = () => {
       data.data && setComments(data.data);
     })();
   }, [currentPost.id]);
+  useEffect(() => {
+    document.title = `${document.title} - ${currentPost.title}`;
+    return () => (document.title = "Meer's Blog");
+  }, []);
   return (
     <div className="single-blog">
       {currentPost && (
