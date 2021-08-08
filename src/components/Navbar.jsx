@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { showPostForm } from '../store/blogActions';
 import { useStore } from '../store/store';
 const Navbar = () => {
   const location = useLocation();
-  const { setShowAddPostForm } = useStore();
+  const { dispatch, globalState } = useStore();
   const [isHomepage, setIsHomePage] = useState();
   useEffect(() => {
     if (location.pathname === '/') {
@@ -21,7 +22,7 @@ const Navbar = () => {
         {isHomepage && (
           <button
             onClick={() => {
-              setShowAddPostForm((prevState) => !prevState);
+              dispatch(showPostForm(!globalState.showPostForm));
             }}
           >
             Add Post

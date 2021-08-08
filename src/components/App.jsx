@@ -9,8 +9,10 @@ import Navbar from './Navbar';
 import { useStore } from '../store/store';
 import * as actions from '../store/blogActions';
 import AddPost from './AddPost';
+import { Redirect } from 'react-router-dom';
 const App = () => {
-  const { dispatch } = useStore();
+  const { dispatch, globalState } = useStore();
+
   const setBlogs = async () => {
     const blogsData = await axios('https://jsonplaceholder.typicode.com/posts');
     const usersData = await axios(
@@ -36,17 +38,22 @@ const App = () => {
   useEffect(() => {
     setBlogs();
   }, []);
+
   return (
     <div className="container">
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <AddPost />
+          {globalState.showPostForm && <AddPost />}
           <Blogs />
         </Route>
-        <Route exact path="/:id/:title">
-          <SingleBlog />
-        </Route>
+        {!globalState.currentPost ? (
+          <Redirect to="/" />
+        ) : (
+          <Route exact path="/:id/:title">
+            <SingleBlog />
+          </Route>
+        )}
       </Switch>
     </div>
   );

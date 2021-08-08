@@ -14,6 +14,9 @@ export const setCurrentPost = (id) => ({
   },
 });
 
-export const clearBlogs = () => ({
-  type: ACTIONS.CLEAR_BLOGS,
+export const showPostForm = (bool) => ({
+  type: ACTIONS.SHOW_POST_FORM,
+  payload: {
+    bool,
+  },
 });

@@ -8,58 +8,55 @@ const AddPost = () => {
   const inputBodyRef = useRef();
   const inputUserIdRef = useRef();
 
-  const { dispatch, showAddPostForm } = useStore();
+  const { dispatch } = useStore();
+  const addPost = async (e) => {
+    const data = await axios.post(
+      `https://jsonplaceholder.typicode.com/posts`,
+      {
+        userId: Number(inputUserIdRef.current.value),
+        title: inputTitleRef.current.value,
+        body: inputBodyRef.current.value,
+      },
+      {
+        'Content-type': 'application/json; charset=UTF-8',
+      }
+    );
+    dispatch(setBlogs([data.data]));
+    e.target.reset();
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    (async () => {
-      const data = await axios.post(
-        `https://jsonplaceholder.typicode.com/posts`,
-        {
-          userId: Number(inputUserIdRef.current.value),
-          title: inputTitleRef.current.value,
-          body: inputBodyRef.current.value,
-        },
-        {
-          'Content-type': 'application/json; charset=UTF-8',
-        }
-      );
-      dispatch(setBlogs([data.data]));
-      e.target.reset();
-    })();
+    addPost(e);
   };
 
   return (
     <>
-      {showAddPostForm && (
-        <>
-          <form onSubmit={(e) => handleSubmit(e)} className="post-form">
-            <input
-              required
-              type="text"
-              name="title"
-              placeholder="Title"
-              id=""
-              ref={inputTitleRef}
-            />
-            <textarea
-              ref={inputBodyRef}
-              required
-              name="body"
-              placeholder="Post"
-              id=""
-            />
-            <input
-              ref={inputUserIdRef}
-              required
-              type="number"
-              name="userId"
-              placeholder="User ID"
-              id=""
-            />
-            <input required type="submit" value="Post" />
-          </form>
-        </>
-      )}
+      <form onSubmit={(e) => handleSubmit(e)} className="post-form">
+        <input
+          required
+          type="text"
+          name="title"
+          placeholder="Title"
+          id=""
+          ref={inputTitleRef}
+        />
+        <textarea
+          ref={inputBodyRef}
+          required
+          name="body"
+          placeholder="Post"
+          id=""
+        />
+        <input
+          ref={inputUserIdRef}
+          required
+          type="number"
+          name="userId"
+          placeholder="User ID"
+          id=""
+        />
+        <input required type="submit" value="Post" />
+      </form>
     </>
   );
 };

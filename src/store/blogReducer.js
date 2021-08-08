@@ -15,6 +15,11 @@ export const reducer = (state, action) => {
         ...state,
         currentPost: state.blogs.find((blog) => blog.id === action.payload.id),
       };
+    case ACTIONS.SHOW_POST_FORM:
+      return {
+        ...state,
+        showPostForm: action.payload.bool,
+      };
     default:
       return state;
   }
