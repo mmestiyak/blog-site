@@ -94,7 +94,7 @@ a {
 
 .comment-box p {
   background: rgba(94, 241, 185, 0.61);
-  opacity: 90%;
+  opacity: 0.9;
   padding: 0.5em;
   border-radius: inherit;
   font-size: 1.4rem;
